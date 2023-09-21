@@ -83,3 +83,16 @@ export default function Header() {
   className="button">
   Add Challenge
 </motion.button>
+
+
+
+================ reusing animation states => variants prop  ================
+<motion.dialog open className="modal" 
+    variants={{
+      hidden: { opacity:0, y: 100 },
+      visible: { opacity:1, y:0 }
+    }}
+    initial="hidden"
+    animate="visible"
+    exit="hidden"
+>
