@@ -173,3 +173,25 @@ export default function Header() {
         hidden: {  opacity:0, scale:0.5 },
         visible: { opacity:1, scale:[0.8, 1.3, 1] }  ========[0.8, 1.3, 1]=======
       }}
+
+
+=============== 11. IMPERATIVE ANIMATIONS ==================
+import { motion, stagger, useAnimate } from 'framer-motion';
+....
+const [ scope, animate ] = useAnimate();
+....
+if (
+      !challenge.title.trim() ||
+      !challenge.description.trim() ||
+      !challenge.deadline.trim() ||
+      !challenge.image
+    ) {
+      animate( <=============== here =================
+        "input, textarea",
+        { x : [-15, 0, 15, 0] },
+        { type:"spring", duration:0.2, delay: stagger(0.05) }
+      )
+      return;
+    }
+....
+<form ref={scope}>
