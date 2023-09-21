@@ -75,7 +75,7 @@ export default function Header() {
       </AnimatePresence>
 
 
-================= Animate While Hover ==================
+================= 5. Animate While Hover ==================
 <motion.button
   whileHover={{scale:1.1}}
   transition={{ type:"spring", stiffness:500, mass:1 }}
@@ -86,7 +86,7 @@ export default function Header() {
 
 
 
-================ reusing animation states => variants prop  ================
+================ 6. reusing animation states => variants prop  ================
 <motion.dialog open className="modal" 
     variants={{
       hidden: { opacity:0, y: 100 },
@@ -96,3 +96,45 @@ export default function Header() {
     animate="visible"
     exit="hidden"
 >
+
+
+================= 7. nested animations and variants ===================
+-----------parent-------------
+<motion.dialog open className="modal" 
+      variants={{
+        hidden: { opacity:0, y: 30 },
+        visible: { opacity:1, y:0 }
+      }}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
+  >
+      <h2>{title}</h2>
+      {children}
+</motion.dialog>
+
+
+---------child----------
+<Modal title="New Challenge" onClose={onDone}>
+      <form id="new-challenge" onSubmit={handleSubmit}>
+        <ul id="new-challenge-images">
+          {images.map((image) => (
+            <motion.li
+              variants={{
+                hidden: {  opacity:0, scale:0.5 },
+                visible: { opacity:1, scale:1 }
+              }}
+              exit={{ opacity:1, scale:1 }}
+              key={image.alt}
+              onClick={() => handleSelectImage(image)}
+              className={selectedImage === image ? 'selected' : undefined}
+            >
+              <img {...image} />
+            </motion.li>
+          ))}
+        </ul>
+      </form>
+    </Modal>
+
+
+=================== 8.  =======================
