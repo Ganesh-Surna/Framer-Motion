@@ -1,0 +1,17 @@
+import { motion } from 'framer-motion';
+
+function App() {
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
+  const [rotate, setRotate] = useState(0);
+
+  return (
+    <div id="demo">
+      <motion.div id="box"
+          animate={{x,y,rotate}}
+          transition={{
+            duration:0.3,
+            // bounce:0,
+            type:"spring",
+          }}
+      />
