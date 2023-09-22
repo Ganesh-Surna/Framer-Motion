@@ -202,3 +202,36 @@ if (
 <motion.li layout>
 .....
 </motion.li>
+
+
+
+============== 13. AnimatePresence WITH MULTIPLE ELEMENTS ==============
+
+<AnimatePresence mode="wait">  ======================> mode="sync" by default
+    {displayedChallenges.length > 0 && (
+      <motion.ol
+        key="list"  =============================> 1st element in AnimatePresence
+        exit={{ opacity: 0, y: -30 }}
+        className="challenge-items"
+      >
+        {displayedChallenges.map((challenge) => (
+          <ChallengeItem
+            key={challenge.id}
+            challenge={challenge}
+            onViewDetails={() => handleViewDetails(challenge.id)}
+            isExpanded={expanded === challenge.id}
+          />
+        ))}
+      </motion.ol>
+    )}
+    {displayedChallenges.length === 0 && (
+            <motion.p
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              key="fallback"    =============================> 2st element in AnimatePresence
+            >
+                  No challenges found.
+            </motion.p>
+    )}
+</AnimatePresence>
