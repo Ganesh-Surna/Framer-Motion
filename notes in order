@@ -235,3 +235,24 @@ if (
             </motion.p>
     )}
 </AnimatePresence>
+
+
+
+================== 14. COMBININGANIMATIONS WITH LAYOUT ANIMATIONS TO PREVENT WOBBLE EFFRCT ================
+<motion.li layout>
+.....
+<AnimatePresence>
+    {isExpanded && (
+      <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: "auto", opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+      >
+        <p className="challenge-item-description">
+          {challenge.description}
+        </p>
+      </motion.div>
+    )}
+</AnimatePresence>
+....
+</motion.li>
