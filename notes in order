@@ -195,3 +195,10 @@ if (
     }
 ....
 <form ref={scope}>
+
+
+
+=============== 12. ANIMATING LAYOUT CHANGES ===============
+<motion.li layout>
+.....
+</motion.li>
