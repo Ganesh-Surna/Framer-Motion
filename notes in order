@@ -261,3 +261,23 @@ if (
 
 ================== 15. ANIMATING SHARED COMPONENTS/ELEMENTS ====================
 {isSelected && <motion.div layoutId='active-tab-indicator'/>}
+
+
+
+================== 16. RE-TRIGGERING ANIMATIONS VIA keys =================
+<Badge key={badgeCaption} caption={badgeCaption}/>  =========> setting key dynamically
+
+------------ IN Badge.js ---------------
+import { motion } from "framer-motion";
+
+export default function Badge({ caption }) {
+  return (
+    <motion.span
+      animate={{ scale: [1, 1.2, 1] }}
+      transition={{ duration: 0.3 }}
+      className="badge"
+    >
+      {caption}
+    </motion.span>
+  );
+}
