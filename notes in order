@@ -256,3 +256,8 @@ if (
 </AnimatePresence>
 ....
 </motion.li>
+
+
+
+================== 15. ANIMATING SHARED COMPONENTS/ELEMENTS ====================
+{isSelected && <motion.div layoutId='active-tab-indicator'/>}
