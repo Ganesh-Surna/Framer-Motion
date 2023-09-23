@@ -9,6 +9,7 @@ export default function WelcomePage() {
   const { scrollY } = useScroll();
 
   const yCity = useTransform(scrollY, [0, 200], [0, -100]);
+  const scaleCity= useTransform(scrollY, [0,500], [1, 1.5]);
   const opacityCity = useTransform(
     scrollY,
     [0, 200, 300, 500],
@@ -38,7 +39,7 @@ export default function WelcomePage() {
           </Link>
         </motion.div>
         <motion.img
-          style={{ y: yCity, opacity: opacityCity }}
+          style={{ y: yCity, opacity: opacityCity, scale: scaleCity }}
           src={cityImg}
           alt="A city skyline touched by sunlight"
           id="city-image"
